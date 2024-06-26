@@ -176,6 +176,7 @@ const detectionType = (val: number | string) => {
 }
 
 //We need add all case that type of the id that will add
+//This is a bad example
 const provideId = (id: string | string[]) => {
     if(id){
         if(typeof id === "object") {
@@ -188,3 +189,19 @@ const provideId = (id: string | string[]) => {
     }
 }
 
+interface User {
+    name: string,
+    email: string
+}
+
+interface Admin {
+    name: string,
+    email: string,
+    isAdmin: boolean
+}
+
+const isAdminAccount = (account: User | Admin) => {
+    if("isAdmin" in account) {
+        return account.isAdmin
+    }    
+}
